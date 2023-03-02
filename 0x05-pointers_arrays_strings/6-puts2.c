@@ -1,29 +1,17 @@
 #include "main.h"
 /**
- * puts2 - this function should print only one character out of the two
- * starting with the first character
- * @str: input
- * Return: print
+ * puts2 - this function should print the string
+ * @str: function parameter
+ * Return: 0
  */
 void puts2(char *str)
 {
-	int longa = 0;
-	int b = 0;
-	char *z = str;
-	int o;
+	int i;
 
-	while (*z != '\0')
+		for (i = 0 ; str[i] != '\0' ; i++)
 	{
-		b++;
-		longa++;
-	}
-	b = longa - 1;
-	for (o = 0 ; o <= b ; o++)
-	{
-		if (o % 2 == 0)
-	{
-		_putchar(str[o]);
-	}
+		_putchar(str[i]);
+		i++;
 	}
 	_putchar('\n');
 }
