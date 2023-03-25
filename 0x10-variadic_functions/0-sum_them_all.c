@@ -1,42 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "variadic_functions.h"
+#include <stdarg.h>
 
 /**
- * main - prints its own opcodes
- * @argc: number of arguments
- * @argv: array of arguments
+ * sum_them_all - Returns the sum of all its parameters.
+ * @n: The number of parameters passed to the function.
+ * @...: A variable number of parameters to calculate the sum of.
  *
- * Return: Always 0 (Success)
+ * Return: If n == 0, returns 0.
+ *         Otherwise, returns the sum of all parameters.
+ * @author Silas Mugambi
  */
-int main(int argc, char *argv[])
+int sum_them_all(const unsigned int n, ...)
 {
-	int bytes, i;
-	char *arr;
+	va_list nums;
+	unsigned int index, sum = 0;
 
-	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
+	va_start(nums, n);
 
-	bytes = atoi(argv[1]);
+	for (index = 0; index < n; index++)
+		sum += va_arg(nums, int);
 
-	if (bytes < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
+	va_end(nums);
 
-	arr = (char *)main;
-
-	for (i = 0; i < bytes; i++)
-	{
-		if (i == bytes - 1)
-		{
-			printf("%02hhx\n", arr[i]);
-			break;
-		}
-		printf("%02hhx ", arr[i]);
-	}
-	return (0);
+	return (sum);
 }
