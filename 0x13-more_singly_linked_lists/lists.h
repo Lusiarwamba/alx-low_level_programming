@@ -5,18 +5,18 @@
 #include <stdlib.h>
 
 /**
- * struct lists_s - this function declares a singly linked list
+ * struct listint_s - singly linked list
  * @n: this is an integer
  * @next: this function points to the next code
  *
  * Description: a single linked list node structure
  * an ALX project
  */
-typedef struct listsint_s
+typedef struct listint_s
 {
 	int n;
 	struct listint_s *next;
-}listint_t;
+} listint_t;
 
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
